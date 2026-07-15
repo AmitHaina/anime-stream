@@ -1,0 +1,9 @@
+{
+  "name": "anime-stream",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Netflix-style demo player proving anime.uniquestream.net's video encryption is trivially client-side bypassable.",
+  "scripts": {
+    "start": "node server.js"
+  }
+}
