@@ -30,8 +30,20 @@ function renderRow(title, items) {
     contentEl.innerHTML = `
         <div class="row">
             <h3>${title}</h3>
+            <button class="row-nav prev" aria-label="Scroll left"><svg viewBox="0 0 24 24"><path d="M15.5 19L8.5 12l7-7 1.4 1.4L11.3 12l5.6 5.6z"/></svg></button>
             <div class="row-track">${items.map(cardHtml).join('')}</div>
+            <button class="row-nav next" aria-label="Scroll right"><svg viewBox="0 0 24 24"><path d="M8.5 5l7 7-7 7-1.4-1.4L12.7 12 7.1 6.4z"/></svg></button>
         </div>`;
+    wireRowNav();
+}
+
+function wireRowNav() {
+    const track = contentEl.querySelector('.row-track');
+    const prev = contentEl.querySelector('.row-nav.prev');
+    const next = contentEl.querySelector('.row-nav.next');
+    if (!track) return;
+    prev.onclick = () => track.scrollBy({ left: -track.clientWidth * 0.9, behavior: 'smooth' });
+    next.onclick = () => track.scrollBy({ left: track.clientWidth * 0.9, behavior: 'smooth' });
 }
 
 function renderGrid(title, items) {

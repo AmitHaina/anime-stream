@@ -10,11 +10,35 @@
   <header><a href="/"><h1>AnimeStream</h1></a></header>
   <main class="watch-main">
     <h2 id="epTitle">Loading...</h2>
-    <div class="player-wrap">
-      <video id="video" controls></video>
+    <div class="player-wrap" id="playerWrap">
+      <video id="video"></video>
       <div id="playerOverlay" class="player-overlay">
         <div class="spinner"></div>
         <p id="overlayText">Loading video...</p>
+      </div>
+      <button class="big-play-btn" id="bigPlayBtn" aria-label="Play">
+        <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+      </button>
+      <div class="controls-bar" id="controlsBar">
+        <div class="progress-container" id="progressContainer">
+          <div class="progress-buffered" id="progressBuffered"></div>
+          <div class="progress-played" id="progressPlayed"></div>
+          <input type="range" id="scrubber" class="scrubber" min="0" max="1000" value="0" step="1">
+        </div>
+        <div class="controls-row">
+          <button class="ctrl-btn" id="playBtn" aria-label="Play/Pause">
+            <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+          </button>
+          <button class="ctrl-btn" id="muteBtn" aria-label="Mute/Unmute">
+            <svg viewBox="0 0 24 24"><path d="M3 10v4h4l5 5V5L7 10H3zm13.5 2A4.5 4.5 0 0 0 14 7.97v8.05A4.5 4.5 0 0 0 16.5 12z"/></svg>
+          </button>
+          <input type="range" id="volumeSlider" class="volume-slider" min="0" max="1" step="0.05" value="1">
+          <span class="time-display" id="timeDisplay">0:00 / 0:00</span>
+          <div class="spacer"></div>
+          <button class="ctrl-btn" id="fullscreenBtn" aria-label="Fullscreen">
+            <svg viewBox="0 0 24 24"><path d="M7 14H5v5h5v-2H7v-3zm-2-4h2V7h3V5H5v5zm12 7h-3v2h5v-5h-2v3zM14 5v2h3v3h2V5h-5z"/></svg>
+          </button>
+        </div>
       </div>
     </div>
     <div class="locales" id="locales"></div>
