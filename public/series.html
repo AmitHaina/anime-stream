@@ -2,20 +2,42 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Series - AnimeStream</title>
 <link rel="icon" href="data:,">
 <link rel="stylesheet" href="/style.css">
 </head>
 <body>
-  <header id="siteHeader"><a href="/"><h1>AnimeStream</h1></a></header>
+  <header id="siteHeader">
+    <a href="/"><h1>AnimeStream</h1></a>
+    <form id="searchForm">
+      <input id="searchInput" type="search" placeholder="Search anime..." autocomplete="off">
+      <button type="button" id="searchClear">&times;</button>
+      <button type="submit">Search</button>
+    </form>
+  </header>
   <main>
     <div id="seriesHero" class="series-hero">
-      <div class="series-hero-content">
-        <h2 id="seriesTitle">Loading...</h2>
+      <div id="seriesSkeleton" class="series-hero-content">
+        <div class="skeleton skeleton-shimmer" style="width:300px;height:38px;margin-bottom:12px"></div>
+        <div class="skeleton skeleton-shimmer" style="width:180px;height:14px;margin-bottom:20px"></div>
+        <div class="skeleton skeleton-shimmer" style="width:450px;height:14px;margin-bottom:6px"></div>
+        <div class="skeleton skeleton-shimmer" style="width:380px;height:14px;margin-bottom:20px"></div>
+        <div class="skeleton skeleton-shimmer" style="width:130px;height:40px;border-radius:4px"></div>
+      </div>
+      <div class="series-hero-content" id="seriesContent" style="display:none">
+        <button class="back-btn" onclick="history.back()">
+          <svg viewBox="0 0 24 24"><path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"/></svg>
+          Back
+        </button>
+        <h2 id="seriesTitle"></h2>
         <div class="series-meta" id="seriesMeta"></div>
+        <div class="genre-tags" id="genreTags"></div>
         <p id="seriesDesc"></p>
         <div class="hero-actions">
-          <button class="btn-play" id="heroPlayBtn">▶ Play</button>
+          <button class="btn-play" id="heroPlayBtn">
+            <svg viewBox="0 0 24 24" style="width:18px;height:18px;fill:currentColor"><path d="M8 5v14l11-7z"/></svg> Play
+          </button>
         </div>
       </div>
     </div>
@@ -24,9 +46,36 @@
         <h3>Episodes</h3>
         <select id="seasons" class="season-select"></select>
       </div>
-      <div id="episodes" class="episodes"></div>
+      <div id="episodes" class="episodes">
+        <div id="epSkeleton">
+          <div class="skeleton-ep-row"><div class="skeleton skeleton-shimmer" style="width:36px;height:28px;flex-shrink:0"></div><div class="skeleton skeleton-shimmer skeleton-ep-thumb"></div><div class="skeleton-ep-lines"><div class="skeleton skeleton-shimmer" style="width:200px;height:14px;margin-bottom:6px"></div><div class="skeleton skeleton-shimmer" style="width:60px;height:12px"></div></div></div>
+          <div class="skeleton-ep-row"><div class="skeleton skeleton-shimmer" style="width:36px;height:28px;flex-shrink:0"></div><div class="skeleton skeleton-shimmer skeleton-ep-thumb"></div><div class="skeleton-ep-lines"><div class="skeleton skeleton-shimmer" style="width:180px;height:14px;margin-bottom:6px"></div><div class="skeleton skeleton-shimmer" style="width:55px;height:12px"></div></div></div>
+          <div class="skeleton-ep-row"><div class="skeleton skeleton-shimmer" style="width:36px;height:28px;flex-shrink:0"></div><div class="skeleton skeleton-shimmer skeleton-ep-thumb"></div><div class="skeleton-ep-lines"><div class="skeleton skeleton-shimmer" style="width:220px;height:14px;margin-bottom:6px"></div><div class="skeleton skeleton-shimmer" style="width:50px;height:12px"></div></div></div>
+        </div>
+      </div>
+      <div id="loadMoreWrap" class="load-more-wrap" style="display:none">
+        <button class="load-more-btn" id="loadMoreBtn">Load More Episodes</button>
+      </div>
+    </div>
+    <div id="similarSection" style="display:none">
+      <div class="row" id="similarRow">
+        <h3>More Like This</h3>
+        <button class="row-nav prev" aria-label="Scroll left"><svg viewBox="0 0 24 24"><path d="M15.5 19L8.5 12l7-7 1.4 1.4L11.3 12l5.6 5.6z"/></svg></button>
+        <div class="row-track" id="similarTrack"></div>
+        <button class="row-nav next" aria-label="Scroll right"><svg viewBox="0 0 24 24"><path d="M8.5 5l7 7-7 7-1.4-1.4L12.7 12 7.1 6.4z"/></svg></button>
+      </div>
     </div>
   </main>
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-links">
+        <a href="/">Home</a>
+        <a href="javascript:void(0)">Terms</a>
+        <a href="javascript:void(0)">Privacy</a>
+      </div>
+      <p>&copy; 2025 AnimeStream</p>
+    </div>
+  </footer>
   <script src="/series.js"></script>
 </body>
 </html>

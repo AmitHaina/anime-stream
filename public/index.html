@@ -2,7 +2,9 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>AnimeStream</title>
+<meta name="description" content="Stream anime in HD">
 <link rel="icon" href="data:,">
 <link rel="stylesheet" href="/style.css">
 </head>
@@ -11,13 +13,26 @@
     <a href="/"><h1>AnimeStream</h1></a>
     <form id="searchForm">
       <input id="searchInput" type="search" placeholder="Search anime..." autocomplete="off">
+      <button type="button" id="searchClear">&times;</button>
       <button type="submit">Search</button>
     </form>
   </header>
+  <nav class="genre-bar" id="genreBar"></nav>
   <main>
     <div id="hero"></div>
     <div id="content"></div>
   </main>
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-links">
+        <a href="/">Home</a>
+        <a href="javascript:void(0)">Terms</a>
+        <a href="javascript:void(0)">Privacy</a>
+        <a href="javascript:void(0)">Contact</a>
+      </div>
+      <p>&copy; 2025 AnimeStream</p>
+    </div>
+  </footer>
   <script src="/app.js"></script>
 </body>
 </html>
